@@ -1,11 +1,13 @@
 package br.contabancaria.banco;
 
-import br.contabancaria.banco.Usuario;
+import br.contabancaria.banco.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
 
 public class main {
+    private static br.contabancaria.banco.Usuario Usuario;
+
     public static void main(String[] args) {
 
 
@@ -68,13 +70,27 @@ public class main {
 
             // Verifica se a senha digitada corresponde à registrada
             if (senhaLogin.equals(Usuario.getSenha())) {
-                break;
+                System.out.println("\nLogin efetuado com sucesso!\n");
+
             } else {
                 System.out.println("Senha incorreta! Tente novamente.");
             }
+
+            while (true){
+                if (senhaLogin.equals(Usuario.getSenha()) == true){
+
+                    ContaBancaria contaBancaria = new ContaBancaria(Usuario);
+                    System.out.println("Qual valor deseja depositar? ");
+                    double depositar = scanner.nextDouble();
+                    System.out.println("Seu saldo agora é: " + depositar);
+                    break;
+
+                }
+            }
+
         }
 
-        System.out.println("\nLogin efetuado com sucesso!\n");
     }
+
 }
 
