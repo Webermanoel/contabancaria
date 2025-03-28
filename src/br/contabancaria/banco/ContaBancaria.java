@@ -7,14 +7,12 @@ public class ContaBancaria {
     private Usuario usuario;
     private ArrayList<String> historico; // Lista para o extrato
 
-    // Construtor
     public ContaBancaria(Usuario usuario) {
         this.saldo = 0.0;
         this.usuario = usuario;
         this.historico = new ArrayList<>();
     }
 
-    // Métodos
     public void depositar(double valor) {
         if (valor > 0) {
             saldo += valor;
